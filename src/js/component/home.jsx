@@ -1,25 +1,34 @@
 import React from "react";
+import Digit from "./Digit";
+
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
+const styleContainer = {
+	backgroundColor: "black",
+	marginTop: 5,
+	marginLeft: 5,
+	marginRight: 5
+};
+
+const icon = <i className="fa-solid fa-clock px-1 text-white"></i>;
+
 //create your first component
-const Home = () => {
+const Home = (props) => {
+	const secondsString = String(props.seconds).padStart(6, "0");
+	const secondsArray = secondsString.split("");
+
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+		<>
+			<div className="d-flex justify-content-between px-4" style={styleContainer}>
+				<Digit content={icon} />
+				{secondsArray.map((digit, index) => (
+					<Digit key={index} content={<p className="px-2 text-white">{digit}</p>} />
+				))}
+			</div>
+		</>
 	);
 };
 
