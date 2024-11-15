@@ -2,8 +2,8 @@ import React from "react";
 import Digit from "./Digit";
 
 
+
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
 const styleContainer = {
 	backgroundColor: "black",
@@ -16,9 +16,12 @@ const icon = <i className="fa-solid fa-clock px-1 text-white"></i>;
 
 //create your first component
 const Home = (props) => {
-	const secondsString = String(props.seconds).padStart(6, "0");
-	const secondsArray = secondsString.split("");
+	let secondsString = String(props.seconds).padStart(6, "0");
+	let secondsArray = secondsString.split("");
 
+	const onclickReset = () => {
+		props.setSeconds(0);
+	};
 
 	return (
 		<>
@@ -27,6 +30,9 @@ const Home = (props) => {
 				{secondsArray.map((digit, index) => (
 					<Digit key={index} content={<p className="px-2 text-white">{digit}</p>} />
 				))}
+			</div>
+			<div className="d-flex justify-content-center mt-1">
+				<button onClick={onclickReset} type="button" className="ms-1 btn btn-dark">Reset</button>
 			</div>
 		</>
 	);
