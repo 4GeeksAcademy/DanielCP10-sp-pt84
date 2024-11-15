@@ -7,11 +7,10 @@ import "../styles/index.css";
 
 //import your own components
 import Home from "./component/home.jsx";
+import Menu from "./component/Menu.js";
+
 
 //render your react application
-let seconds = 0;
-//ReactDOM.createRoot(document.getElementById('app')).render(<Home seconds={seconds}/>)
-setInterval(() => {
-    seconds++;
-    ReactDOM.createRoot(document.getElementById('app')).render(<Home seconds={seconds}/>);
-}, 1000);
+ReactDOM.createRoot(document.getElementById('app')).render(<Menu/>)
+
+
