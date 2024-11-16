@@ -9,8 +9,6 @@ import "../styles/index.css";
 import Home from "./component/home.jsx";
 import Menu from "./component/Menu.js";
 
-import Menu from "./component/Menu.js";
-
 
 //render your react application
 ReactDOM.createRoot(document.getElementById('app')).render(<Menu/>)
